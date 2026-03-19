@@ -1,5 +1,6 @@
 import subprocess
 import tempfile
+import sys
 import os
 from typing import List
 from app.models.schemas import TestCase, ExecutionDetail, ExecutionResult
@@ -12,7 +13,7 @@ def execute_test_cases(file_path: str, test_cases: List[TestCase]) -> ExecutionR
         # Dry run the file
         try:
             result = subprocess.run(
-                ["python", file_path],
+                [sys.executable, file_path],
                 capture_output=True,
                 text=True,
                 timeout=2
@@ -61,7 +62,7 @@ except Exception as e:
                 f.write(runner_code)
             
             result = subprocess.run(
-                ["python", runner_path],
+                [sys.executable, runner_path],
                 capture_output=True,
                 text=True,
                 timeout=2
