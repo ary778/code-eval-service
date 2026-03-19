@@ -27,8 +27,18 @@ code-eval-service/
 ### 1. Prerequisites
 - Python 3.10+ installed
 - Git
+- Docker and Docker Compose (recommended)
 
-### 2. Clone the repository
+> **IMPORTANT**: Please read the [SECURITY.md](SECURITY.md) before integrating this service in a production environment or executing untrusted code.
+
+### 2. Run with Docker (Recommended)
+This is the easiest way to run the service:
+```bash
+docker-compose up --build
+```
+The application will be available at `http://localhost:8000`.
+
+### 3. Clone the repository
 ```bash
 git clone https://github.com/ary778/code-eval-service.git
 cd code-eval-service
